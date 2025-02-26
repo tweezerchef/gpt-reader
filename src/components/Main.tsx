@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   Paper,
   Stack,
@@ -12,8 +12,13 @@ import {
 import classes from "./CSS/Main.module.css";
 
 import { DisplayArea } from "./maincomponents/DisplayArea";
-
+import { Input } from "./maincomponents/Input";
 export function Main() {
+  const [response, setResponse] = useState<Response | null>(null);
+  const [input, setInput] = useState<string>("");
+  useEffect(() => {
+    console.log(input);
+  }, [input]);
   const sampleResponse = {
     text: "This is a sample response from the LLM. It can contain **markdown** and `code blocks` as well as regular text.",
     metadata: {
@@ -31,6 +36,8 @@ export function Main() {
           <Title order={2}> LLM Response</Title>
           <Divider />
           <DisplayArea response={sampleResponse} />
+          <Divider />
+          <Input setInput={setInput} input={input} />
         </Stack>
       </Paper>
     </Box>
