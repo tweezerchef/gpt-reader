@@ -1,6 +1,11 @@
 import { createRoot } from "react-dom/client";
 import React, { useState, useEffect } from "react";
-
+import "@mantine/core/styles.css";
+import { MantineProvider, Center } from "@mantine/core";
+import { Header } from "./components/Header";
+import { Main } from "./components/Main";
+import classes from "./CSS/app.module.css";
+import "@mantine/code-highlight/styles.css";
 // Add this type declaration at the top of your file
 declare global {
   interface Window {
@@ -37,10 +42,14 @@ function App() {
   }, []);
 
   return (
-    <div>
-      <h1>Starting Shit</h1>
-      <p>Message from main process: {message}</p>
-    </div>
+    <MantineProvider>
+      <main className="app-container">
+        <Center className={classes.center}>
+          <Header />
+          <Main />
+        </Center>
+      </main>
+    </MantineProvider>
   );
 }
 

@@ -1,0 +1,53 @@
+:root {
+  --color-primary: #c69963;
+  --color-primary-dark: #b28451;
+
+  --color-secondary: #101d2c;
+
+  --color-grey-light-1: #f9f7f6;
+  --color-grey-light-2: #aaa;
+
+  --color-grey-dark-1: #54483a;
+  --color-grey-dark-2: #6d5d4b;
+
+  --font-primary: "Nunito", sans-serif;
+  --font-display: "Josefin Sans", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; /* 10px/16px 1rem=10px */
+}
+
+body {
+  font-family: var(--font-primary);
+  color: var(--color-grey-dark-2);
+  font-weight: 300;
+  line-height: 1.6;
+  height: 100vh;
+  margin: 0;
+}
+
+.app-container {
+  height: 100%;
+  width: 100%;
+}
+
+/* Make sure headings use the correct font */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  color: var(--color-secondary);
+}
