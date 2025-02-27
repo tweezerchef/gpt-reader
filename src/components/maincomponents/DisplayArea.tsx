@@ -10,21 +10,9 @@ interface CodeProps {
   className?: string;
   children: React.ReactNode;
 }
-interface ResponseMetadata {
-  model: string;
-  promptTokens: number;
-  completionTokens: number;
-  totalTokens: number;
-  latency: string;
-}
-
-interface Response {
-  text: string;
-  metadata: ResponseMetadata;
-}
 
 interface ResponseProps {
-  response: Response;
+  response: string;
 }
 
 export function DisplayArea({ response }: ResponseProps) {
@@ -57,17 +45,17 @@ export function DisplayArea({ response }: ResponseProps) {
             },
           }}
         >
-          {response.text}
+          {response}
         </ReactMarkdown>
       </ScrollArea>
       <Divider my="sm" />
-      <Group mt="md" mb="sm">
+      {/* <Group mt="md" mb="sm">
         <Badge color="blue">{response.metadata.model}</Badge>
         <Group gap="xs">
           <Badge color="gray">Tokens: {response.metadata.totalTokens}</Badge>
           <Badge color="teal">Latency: {response.metadata.latency}</Badge>
         </Group>
-      </Group>
+      </Group> */}
     </Card>
   );
 }

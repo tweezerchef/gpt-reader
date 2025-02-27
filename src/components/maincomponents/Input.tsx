@@ -3,18 +3,20 @@ import { TextInput, ActionIcon } from "@mantine/core";
 import sendIcon from "../../icons/pngegg.png";
 
 export function Input({
-  setInput,
-  input,
+  value,
+  onChange,
+  onSubmit,
 }: {
-  setInput: (input: string) => void;
-  input: string;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  value: string;
+  onSubmit: () => void;
 }) {
   return (
     <TextInput
-      value={input}
-      onChange={(e) => setInput(e.target.value)}
+      value={value}
+      onChange={onChange}
       rightSection={
-        <ActionIcon>
+        <ActionIcon onClick={onSubmit}>
           <img
             src={sendIcon}
             alt="send"
